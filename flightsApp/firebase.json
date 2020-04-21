@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "flightsApp",
+      "public": "dist/flightsApp",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

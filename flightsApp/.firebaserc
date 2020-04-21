@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "flightapp-20ab6": {
+      "hosting": {
+        "flightsApp": [
+          "flightapp-20ab6"
+        ]
+      }
+    }
+  }
+}
