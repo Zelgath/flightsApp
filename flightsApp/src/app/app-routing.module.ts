@@ -8,13 +8,13 @@ import { FlightsComponent } from './flights/flights.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { 
+  {
     path: 'dashboard',
-   component: DashboardComponent,
-   children: [
-     {path: '', redirectTo: 'flights', pathMatch: 'full'},
-     {path: 'flights', component: FlightsComponent}
-   ]
+    component: DashboardComponent,
+    children: [
+      { path: '', redirectTo: 'flights', pathMatch: 'full' },
+      { path: 'flights', component: FlightsComponent }
+    ]
   },
 ];
 
