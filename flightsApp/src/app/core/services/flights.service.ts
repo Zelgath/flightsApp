@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Flight } from 'src/app/models/flight.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,12 @@ export class FlightsService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getFlights() : Observable<any> {
-    return this.db.list<any>(this.API_URL).snapshotChanges()
-    .pipe(map(response=>response.map(flight=>this.assignKey(flight))))
+  getFlights(): Observable<Flight[]> {
+    return this.db.list<Flight>(this.API_URL).snapshotChanges()
+      .pipe(map(response => response.map(flight => this.assignKey(flight))))
   }
 
   private assignKey(flight) {
-    return { ...flight.payload.val() , key: flight.key}
+    return { ...flight.payload.val(), key: flight.key }
   }
 }

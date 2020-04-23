@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 
 
@@ -14,6 +15,7 @@ import { MaterialModule } from '../material/material.module';
     CommonModule,
     RouterModule,
     MaterialModule,
+    AngularFireDatabaseModule
   ]
 })
 export class CoreModule { }

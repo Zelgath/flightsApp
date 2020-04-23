@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { CoreModule } from './core/core.module';
+import { FlightsModule } from './flights/flights.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CoreModule } from './core/core.module';
     BrowserAnimationsModule,
     MaterialModule,
     CoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FlightsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
