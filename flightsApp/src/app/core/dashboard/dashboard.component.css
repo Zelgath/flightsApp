@@ -1,15 +1,20 @@
 .logout-icon {
     font-size: 35px;
+    padding-right: 65px;
+    padding-top: 4px;
 }
 
 .user-login {
     font-size: 15px;
-    padding-right: 30px;
+    padding-right: 20px;
+    padding-top: 7px;
+    color: yellow;
+    font-size: 18px;
 }
 
 .logo {
     background: white;
     cursor: pointer;
-    padding: 4px;
+    padding: 4px 8px;
     border-radius: 25px;
 }

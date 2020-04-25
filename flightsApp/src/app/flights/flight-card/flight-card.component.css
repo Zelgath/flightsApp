@@ -30,17 +30,17 @@
 }
 
 .icon-container > mat-icon {
-    color: darkblue;
+    color: coral;
 }
 
 .time {
     text-align: center;
     font-size: 13px;
-    color: grey
+    color: black;
 }
 
 .destination, .origin {
     font-size: 26px;
     font-weight: bold;
-    color: deeppink;
+    color: midnightblue;
 }

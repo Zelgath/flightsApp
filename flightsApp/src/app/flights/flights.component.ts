@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FlightsService } from '../core/services/flights.service';
 import { Flight } from '../models/flight.model';
 import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { NewFlightComponent } from './new-flight/new-flight.component';
 
 @Component({
   selector: 'app-flights',
@@ -11,6 +13,11 @@ import { Observable } from 'rxjs';
 export class FlightsComponent {
 
   flights: Observable<Flight[]> = this.flightsService.getFlights();
-  constructor(private flightsService: FlightsService) { }
+  constructor(private flightsService: FlightsService,
+              private dialog: MatDialog) { }
+
+  openNewFlightModal() {
+    this.dialog.open(NewFlightComponent);
+  }
 
 }

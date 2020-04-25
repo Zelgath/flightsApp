@@ -1,0 +1,91 @@
+<form [formGroup]="form">
+    <div class="row">
+        <div class="col-sm-8">
+            <mat-form-field>
+                <input matInput formControlName="code" placeholder="Code">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <mat-form-field>
+                <input matInput formControlName="origin" placeholder="Origin">
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4 rights">
+            <mat-form-field>
+                <input matInput formControlName="destination" placeholder="Destination">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <mat-form-field>
+                <mat-label>Departure date</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="departureDate">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4 rights">
+            <mat-form-field>
+                <mat-label>Return date</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="returnDate">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <mat-form-field>
+                <input matInput formControlName="departureTime" type="time" autocomplete="on" placeholder="Departure time">
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4 rights">
+            <mat-form-field>
+                <input matInput formControlName="returnTime" type="time" autocomplete="on" placeholder="Return time">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <mat-form-field>
+            <textarea matInput formControlName="additionalInformation" placeholder="Additional Information"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-checkbox matInput formControlName="withSKPlanesDiscount">With SK Discount</mat-checkbox>
+        </div>
+    </div>
+    <div class="crew-container shadow" *ngFor="let crewMember of [1,2,3];index as index">
+        <div class="row crew-header">
+            <div class="col">
+                <span>Crew Member - {{ index + 1 }}</span>
+                <mat-icon class="float-right">delete_forever</mat-icon>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <mat-form-field>
+                    <input matInput placeholder="Name">
+                </mat-form-field>
+            </div>
+            <div class="col-sm-4">
+                <mat-form-field>
+                <mat-select placeholder="Job">
+                    <mat-option *ngFor="let x of ['stewardess','pilot','mechanic']">{{ x }}</mat-option>
+                </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button mat-raised-button color="primary">Add crew member</button>
+        </div>
+    </div>
+</form>
+<pre> {{form.value | json}}</pre>
