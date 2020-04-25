@@ -5,14 +5,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule, MatDialogConfig, MAT_DIALOG_DEFAULT_OPTIONS, MAT_DIALOG_SCROLL_STRATEGY } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateAdapterOptions } from '@angular/material-moment-adapter'
 import { MatDateFormats, MAT_DATE_FORMATS } from '@angular/material/core';
-import { ScrollStrategyOptions, NoopScrollStrategy } from '@angular/cdk/overlay';
 
 const MAT_DIALOG_GLOBAL_CONFIG: MatDialogConfig = {
   width: '700px',
@@ -23,6 +22,7 @@ const MAT_DIALOG_GLOBAL_CONFIG: MatDialogConfig = {
 
 const MAT_DATE_ADAPTER_GLOBAL_CONFIG: MatMomentDateAdapterOptions = {
   useUtc: true,
+  strict: true
 }
 
 const MAT_DATEPICKER_GLOBAL_CONFIG: MatDateFormats = {
@@ -37,6 +37,12 @@ const MAT_DATEPICKER_GLOBAL_CONFIG: MatDateFormats = {
   }
 }
 
+const MAT_SNACK_BAR_GLOBAL_CONFIG : MatSnackBarConfig = {
+  duration: 2500,
+  verticalPosition: 'bottom',
+  horizontalPosition: 'center'
+}
+
 const MATERIAL_MODULES = [
   MatIconModule,
   MatCardModule,
@@ -49,7 +55,7 @@ const MATERIAL_MODULES = [
   MatSelectModule,
   MatToolbarModule,
   MatDatepickerModule,
-  MatMomentDateModule
+  MatMomentDateModule,
 ];
 
 
@@ -62,7 +68,8 @@ const MATERIAL_MODULES = [
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: MAT_DIALOG_GLOBAL_CONFIG},
     {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: MAT_DATE_ADAPTER_GLOBAL_CONFIG},
-    {provide: MAT_DATE_FORMATS, useValue: MAT_DATEPICKER_GLOBAL_CONFIG}
+    {provide: MAT_DATE_FORMATS, useValue: MAT_DATEPICKER_GLOBAL_CONFIG},
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: MAT_SNACK_BAR_GLOBAL_CONFIG}
   ]
 })
 export class MaterialModule { }

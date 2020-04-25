@@ -14,7 +14,11 @@ export class FlightsService {
 
   getFlights(): Observable<Flight[]> {
     return this.db.list<Flight>(this.API_URL).snapshotChanges()
-      .pipe(map(response => response.map(flight => this.assignKey(flight))))
+      .pipe(map(response => response.map(flight => this.assignKey(flight))));
+  }
+
+  addFlight(flight: Flight) {
+    return this.db.list<Flight>(this.API_URL).push(flight);
   }
 
   private assignKey(flight) {

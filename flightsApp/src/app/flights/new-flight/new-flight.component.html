@@ -2,12 +2,13 @@
 <mat-dialog-content>
 
 </mat-dialog-content>
-<app-flight-form></app-flight-form>
+<app-flight-form #flightForm></app-flight-form>
 <mat-dialog-actions>
     <div class="row">
         <div class="column">
             <button mat-raised-button mat-dialog-close>Cancel</button>
-            <button mat-raised-button color="primary">Create</button>
+            <button mat-raised-button color="primary" [disabled]="flightForm.form.invalid" 
+            (click)="createFlight()">Create</button>
         </div>
     </div>
 </mat-dialog-actions>

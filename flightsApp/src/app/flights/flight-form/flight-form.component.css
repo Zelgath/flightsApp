@@ -12,3 +12,12 @@
 .rights {
     margin-left: 30px;
 }
+
+.delete-icon {
+    cursor: pointer;
+}
+
+.add-member-btn {
+    margin-top: 10px;
+}
+
