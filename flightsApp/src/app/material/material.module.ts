@@ -15,7 +15,7 @@ import { MatDateFormats, MAT_DATE_FORMATS } from '@angular/material/core';
 
 const MAT_DIALOG_GLOBAL_CONFIG: MatDialogConfig = {
   width: '700px',
-  height: '1127px',
+  maxHeight: '1127px',
   disableClose: true,
   hasBackdrop: true,
 }
@@ -69,7 +69,7 @@ const MATERIAL_MODULES = [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: MAT_DIALOG_GLOBAL_CONFIG},
     {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: MAT_DATE_ADAPTER_GLOBAL_CONFIG},
     {provide: MAT_DATE_FORMATS, useValue: MAT_DATEPICKER_GLOBAL_CONFIG},
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: MAT_SNACK_BAR_GLOBAL_CONFIG}
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: MAT_SNACK_BAR_GLOBAL_CONFIG},
   ]
 })
 export class MaterialModule { }
