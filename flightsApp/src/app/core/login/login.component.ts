@@ -1,15 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  credentials = {
+    email: '',
+    password: ''
+  };
 
-  constructor() { }
+  constructor(private authService: AuthService,
+              private router: Router,
+              private toast: MatSnackBar) { }
 
-  ngOnInit(): void {
+  login() {
+    this.authService.login(this.credentials)
+    .then(user=> this.router.navigate(['/dashboard']))
+    .catch(error=> this.toast.open(error.message));
   }
-
 }

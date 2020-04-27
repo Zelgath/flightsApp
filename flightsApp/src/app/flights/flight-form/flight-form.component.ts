@@ -37,10 +37,10 @@ export class FlightFormComponent implements OnInit {
     this.form.get('returnDate').patchValue(this.getDate(flight.returnTime))
     this.form.get('departureTime').patchValue(this.getTime(flight.departureTime))
     this.form.get('returnTime').patchValue(this.getTime(flight.returnTime))
-    flight.crew.forEach(crewMember=> 
+    flight.crew?.forEach(crewMember=> 
       this.addCrewMember(crewMember)
       )
-    this.crew.patchValue(flight.crew)
+    this.crew?.patchValue(flight?.crew)
   }
 
   get crew() {
@@ -78,7 +78,7 @@ export class FlightFormComponent implements OnInit {
   }
 
   private getTime(dateTime : string) : string{
-    return dateTime.slice(-5);
+    return dateTime?.slice(-5);
   }
 
   private getDate(dateTime? : string) : Moment {
@@ -87,7 +87,7 @@ export class FlightFormComponent implements OnInit {
     const year = cutTime?.slice(-4)
     const month = cutTime?.slice(-7,-5)
     const day = cutTime?.slice(0, cutTime.length-8)
-    return moment(`${month}-${day.length == 1 ? 0+day : day}-${year} 00:00 AM`, 'MM-DD-YYYY hh:mm A')
+    return moment(`${month}?-${day.length == 1 ? 0+day : day}?-${year}? 00:00 AM`, 'MM-DD-YYYY hh:mm A')
     }
   }
 
