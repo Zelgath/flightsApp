@@ -22,7 +22,9 @@ export class EditFlightComponent implements AfterViewInit {
               private router: Router) { }
 
   ngAfterViewInit(): void {
+    if (this.flightForm) {
     this.loadFlight();
+    }
   }
 
   removeFlight() {
@@ -54,7 +56,7 @@ export class EditFlightComponent implements AfterViewInit {
 
   private onEditSuccess() {
     this.toast.open('Flight has been successfully edited', '', {panelClass: 'toast-success'})
-    this.router.navigate(['/dashboard'])
+    this.router.navigate(['/dashboard/flights'])
   }
 
   private onFailure(error) {
@@ -62,15 +64,15 @@ export class EditFlightComponent implements AfterViewInit {
   }
 
   private onRemoveSuccess() {
+    this.router.navigate(['/dashboard/flights'])
     this.toast.open('Flight has been successfully removed', '', {panelClass: 'toast-success'})
-    this.router.navigate(['/dashboard'])
   }
 
 
   private loadFlight() {
     const key= this.activatedRoute.snapshot.params['key'];
     this.flightsService.getFlight(key).pipe(
-      tap(flight => this.flightForm.setFlight(flight))
+      tap(flight => this.flightForm?.setFlight(flight))
     ).subscribe (flight=>{
       this.flight = flight
     })

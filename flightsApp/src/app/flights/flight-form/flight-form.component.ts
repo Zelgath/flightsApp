@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-import { Crew, Flight } from 'src/app/models/flight.model';
-import { Moment } from 'moment';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
+import { Moment } from 'moment';
+import { Crew, Flight } from 'src/app/models/flight.model';
 
 @Component({
   selector: 'app-flight-form',
@@ -37,10 +37,11 @@ export class FlightFormComponent implements OnInit {
     this.form.get('returnDate').patchValue(this.getDate(flight.returnTime))
     this.form.get('departureTime').patchValue(this.getTime(flight.departureTime))
     this.form.get('returnTime').patchValue(this.getTime(flight.returnTime))
-    flight.crew?.forEach(crewMember=> 
-      this.addCrewMember(crewMember)
+    flight.crew?.forEach(crewMember=> {
+      this.addCrewMember(crewMember),
+      this.crew?.patchValue(flight?.crew)
+    }
       )
-    this.crew?.patchValue(flight?.crew)
   }
 
   get crew() {
