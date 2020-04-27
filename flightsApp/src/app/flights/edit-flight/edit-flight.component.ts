@@ -55,8 +55,10 @@ export class EditFlightComponent implements AfterViewInit {
   }
 
   private onEditSuccess() {
-    this.toast.open('Flight has been successfully edited', '', {panelClass: 'toast-success'})
+    
     this.router.navigate(['/dashboard/flights'])
+    this.toast.open('Flight has been successfully edited', '', {panelClass: 'toast-success'})
+
   }
 
   private onFailure(error) {
