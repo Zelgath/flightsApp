@@ -4,6 +4,7 @@ import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { LoginComponent } from './core/login/login.component';
 import { FlightsComponent } from './flights/flights.component';
 import { EditFlightComponent } from './flights/edit-flight/edit-flight.component';
+import { AuthGuard } from './core/services/auth.guard';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'flights', pathMatch: 'full' },
       { path: 'flights', component: FlightsComponent },

@@ -2,6 +2,7 @@
     font-size: 35px;
     padding-right: 65px;
     padding-top: 4px;
+    cursor: pointer;
 }
 
 .user-login {

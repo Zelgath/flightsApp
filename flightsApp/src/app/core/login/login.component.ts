@@ -24,4 +24,10 @@ export class LoginComponent {
     .then(user=> this.router.navigate(['/dashboard']))
     .catch(error=> this.toast.open(error.message));
   }
+
+  register() {
+    this.authService.register(this.credentials).then(
+      user=> this.toast.open('Account created, please log in!', '', {panelClass: 'toast-success'})
+    ).catch(error=> this.toast.open(error.message, '', {panelClass: 'toast-error'}))
+  }
 }
