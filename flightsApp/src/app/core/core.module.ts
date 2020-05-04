@@ -6,11 +6,12 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, DashboardComponent],
+  declarations: [LoginComponent, DashboardComponent, PageNotFoundComponent],
   exports: [LoginComponent, DashboardComponent],
   imports: [
     CommonModule,

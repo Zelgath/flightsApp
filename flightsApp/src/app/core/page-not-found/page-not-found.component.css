@@ -1,0 +1,10 @@
+.go-back {
+    cursor: pointer;
+    font-weight: bold;
+    color: aqua;
+}
+
+.go-back:hover {
+    color: blueviolet;
+    transition: linear 300ms;
+}

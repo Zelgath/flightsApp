@@ -24,7 +24,6 @@ import {AngularFireAuthModule} from '@angular/fire/auth'
     MaterialModule,
     CoreModule,
     AngularFireDatabaseModule,
-    FlightsModule,
     AngularFireAuthModule
   ],
   providers: [],
